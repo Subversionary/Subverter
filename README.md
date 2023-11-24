@@ -5,7 +5,7 @@ Marseyloader helper patch that allows loading custom code into the game.
 ### Building
 
 1. Build or [obtain](https://github.com/Subversionary/StationAssemblies) game assemblies.
-2. Add references to Subverter project
+2. Reference Robust.Shared.dll in Subverter project
 3. Build
 
 ### Usage
