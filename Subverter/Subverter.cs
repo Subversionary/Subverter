@@ -58,7 +58,7 @@ public static class ModLoaderPatch
         private static IEnumerable<string> GetSubverters()
         {
             string directoryPath = Directory.GetCurrentDirectory() + "Subversion";
-            MarseyLogger.Log(MarseyLogger.LogType.DEBG, $"Loading from {Directory.GetCurrentDirectory()}");
+            MarseyLogger.Log(MarseyLogger.LogType.DEBG, $"Loading from {directoryPath}");
             foreach (var filePath in Directory.EnumerateFiles(directoryPath, "*.dll"))
             {
                 if (Path.GetFileName(filePath) != "Subverter.dll")
