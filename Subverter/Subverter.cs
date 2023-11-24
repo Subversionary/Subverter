@@ -49,7 +49,7 @@ public static class ModLoaderPatch
             foreach (var path in GetSubverters())
             {
                 MarseyLogger.Log(MarseyLogger.LogType.DEBG, $"Preloading {path}");
-                loadGameAssemblyMethod.Invoke(__instance, new object[] { path.ToString(), false });
+                loadGameAssemblyMethod.Invoke(__instance, new object[] { path.ToString(), true });
             }
             
             return true;
@@ -57,7 +57,7 @@ public static class ModLoaderPatch
         
         private static IEnumerable<string> GetSubverters()
         {
-            string directoryPath = Directory.GetCurrentDirectory() + "Subversion";
+            string directoryPath = Directory.GetCurrentDirectory() + "/Subversion";
             MarseyLogger.Log(MarseyLogger.LogType.DEBG, $"Loading from {directoryPath}");
             foreach (var filePath in Directory.EnumerateFiles(directoryPath, "*.dll"))
             {
