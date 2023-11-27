@@ -1,6 +1,7 @@
 ﻿using System.Reflection;
 using HarmonyLib;
 using Robust.Shared.Utility;
+using static Marserializer;
 
 public static class SubverterPatch
 {
@@ -57,9 +58,12 @@ public static class ModLoaderPatch
         
         private static IEnumerable<string> GetSubverters()
         {
-            string directoryPath = Directory.GetCurrentDirectory() + "/Subversion";
+            string directoryPath = Path.Combine(Directory.GetCurrentDirectory(), "Subversion");
             MarseyLogger.Log(MarseyLogger.LogType.DEBG, $"Loading from {directoryPath}");
-            foreach (var filePath in Directory.EnumerateFiles(directoryPath, "*.dll"))
+
+            var patches = Deserialize(new string[] { directoryPath }) ?? new List<string>();
+
+            foreach (var filePath in patches)
             {
                 if (Path.GetFileName(filePath) != "Subverter.dll")
                 {

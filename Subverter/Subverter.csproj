@@ -10,4 +10,31 @@
       <PackageReference Include="Lib.Harmony" Version="2.3.0-prerelease.2" />
     </ItemGroup>
 
+    <ItemGroup>
+      <Reference Include="Content.Client">
+        <HintPath>..\..\MarseyHijacker\Assemblies\Content.Client.dll</HintPath>
+      </Reference>
+      <Reference Include="Content.Shared">
+        <HintPath>..\..\MarseyHijacker\Assemblies\Content.Shared.dll</HintPath>
+      </Reference>
+      <Reference Include="Robust.Client">
+        <HintPath>..\..\MarseyHijacker\Assemblies\Robust.Client.dll</HintPath>
+      </Reference>
+      <Reference Include="Robust.NetSerializer">
+        <HintPath>..\..\MarseyHijacker\Assemblies\Robust.NetSerializer.dll</HintPath>
+      </Reference>
+      <Reference Include="Robust.Physics">
+        <HintPath>..\..\MarseyHijacker\Assemblies\Robust.Physics.dll</HintPath>
+      </Reference>
+      <Reference Include="Robust.Shared">
+        <HintPath>..\..\MarseyHijacker\Assemblies\Robust.Shared.dll</HintPath>
+      </Reference>
+      <Reference Include="Robust.Shared.AuthLib">
+        <HintPath>..\..\MarseyHijacker\Assemblies\Robust.Shared.AuthLib.dll</HintPath>
+      </Reference>
+      <Reference Include="Robust.Shared.Maths">
+        <HintPath>..\..\MarseyHijacker\Assemblies\Robust.Shared.Maths.dll</HintPath>
+      </Reference>
+    </ItemGroup>
+
 </Project>
