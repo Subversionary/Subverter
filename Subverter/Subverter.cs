@@ -58,10 +58,10 @@ public static class ModLoaderPatch
         
         private static IEnumerable<string> GetSubverters()
         {
-            string directoryPath = Path.Combine(Directory.GetCurrentDirectory(), "Subversion");
+            string directoryPath = Path.Combine(Directory.GetCurrentDirectory(), "Marsey");
             MarseyLogger.Log(MarseyLogger.LogType.DEBG, $"Loading from {directoryPath}");
 
-            var patches = Deserialize(new string[] { directoryPath }) ?? new List<string>();
+            var patches = Deserialize(new string[] { directoryPath }, "subversion.marsey") ?? new List<string>();
 
             foreach (var filePath in patches)
             {
