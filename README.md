@@ -10,9 +10,9 @@ Marseyloader helper patch that allows loading custom code into the game.
 
 ### Usage
 
-1. Copy "Subverter.dll" into "Subversion" folder in the Marseyloader directory.
+1. Copy "Subverter.dll" into the Marseyloader directory.
 2. Start launcher
 
 You should see a new tab in the launcher's "plugins" tab called "Subverter"
 
-Subverter is used automatically by Marseyloader if it detects "Subverter.dll" in the "Subversion" folder.
+Subverter is used automatically by Marseyloader if it detects "Subverter.dll" in the launcher's directory.
