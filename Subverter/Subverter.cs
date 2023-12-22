@@ -7,6 +7,15 @@ public static class SubverterPatch
 {
     public static string Name = "Subverter";
     public static string Description = "Helper patch for loading additional code";
+
+    public delegate void Forward(Assembly asm);
+
+    public static Forward? hideDelegate;
+
+    public static void Hide(Assembly asm)
+    {
+        hideDelegate?.Invoke(asm);
+    }
 }
 
 public static class MarseyLogger
@@ -45,12 +54,14 @@ public static class ModLoaderPatch
         [HarmonyPrefix]
         public static bool Prefix(object __instance)
         {
-            var loadGameAssemblyMethod = AccessTools.Method(AccessTools.TypeByName("Robust.Shared.ContentPack.ModLoader"), "LoadGameAssembly", new Type[] { typeof(string), typeof(bool) });
+            var loadGameAssemblyMethod = AccessTools.Method(AccessTools.TypeByName("Robust.Shared.ContentPack.BaseModLoader"), "InitMod");
         
             foreach (var path in GetSubverters())
             {
+                Assembly subvAsm = Assembly.LoadFrom(path);
                 MarseyLogger.Log(MarseyLogger.LogType.DEBG, $"Preloading {path}");
-                loadGameAssemblyMethod.Invoke(__instance, new object[] { path.ToString(), true });
+                loadGameAssemblyMethod.Invoke(__instance, new object[] { subvAsm });
+                SubverterPatch.Hide(subvAsm);
             }
             
             return true;
