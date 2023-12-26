@@ -1,4 +1,6 @@
-# Subverter
+# DEPRECATED, INTEGRATED WITH MARSEYLOADER
+
+## Subverter
 
 Marseyloader helper patch that allows loading custom code into the game.
 
